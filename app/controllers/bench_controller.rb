@@ -1,7 +1,7 @@
 class BenchController < ApplicationController
 
   def index
-    render :text => "hello world(s)"
+    render :text => "hello, world"
   end
 
   def stress
