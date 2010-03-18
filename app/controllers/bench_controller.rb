@@ -5,10 +5,19 @@ class BenchController < ApplicationController
   end
 
   def stress
+    c = Counter.find(:first, :name => 'BenchController#stress')
+    if c
+      # yes, it's a race condition, but it's sufficient to prove that
+      # DB replication is working
+      c.update(:count => c.count + 1)
+    else
+      Counter.create(:name => 'BenchController#stress', :count => 1)
+    end
+
     @items = []
     5.times do
       @items << Item.create(:title => 'hello world',
-                            :body  => 'this text is fake.' * 50)
+                            :body  => 'is "fake text" a meaningful concept?' * 50)
     end
   end
 
