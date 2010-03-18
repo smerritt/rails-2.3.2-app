@@ -9,7 +9,7 @@ class BenchController < ApplicationController
     if c
       # yes, it's a race condition, but it's sufficient to prove that
       # DB replication is working
-      c.update(:count => c.count + 1)
+      c.update_attributes(:count => c.count + 1)
     else
       Counter.create(:name => 'BenchController#stress', :count => 1)
     end
