@@ -5,7 +5,7 @@ class BenchController < ApplicationController
   end
 
   def stress
-    c = Counter.find(:first, :name => 'BenchController#stress')
+    c = Counter.find_by_name('BenchController#stress')
     if c
       # yes, it's a race condition, but it's sufficient to prove that
       # DB replication is working
