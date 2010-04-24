@@ -1,2 +1,4 @@
-run "echo $RAILS_ENV >> #{release_path}/before_migrate.log"
+File.open('/tmp/hookenv', 'w') do |f|
+  f.write(ENV.inspect)
+end
 
