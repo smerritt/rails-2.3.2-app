@@ -2,8 +2,8 @@ run "echo $RAILS_ENV >> #{release_path}/before_migrate.log"
 run "env > /tmp/hookenv"
 
 File.open("#{release_path}/before_migrates_node", 'w') do |f|
-  require 'pp'
-  f.write @node.pretty_inspect
+  f.write "#{@node[:instance_role]}\n"
+  f.write "#{@node['instance_role']}\n"
 end
 
 on_app_master do
