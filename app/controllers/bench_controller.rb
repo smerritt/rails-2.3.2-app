@@ -17,7 +17,7 @@ class BenchController < ApplicationController
     @items = []
     5.times do
       @items << Item.create(:title => 'hello world',
-                            :body  => 'is "fake text" a meaningful concept?' * 50)
+                            :body  => 'horf')
     end
   end
 
